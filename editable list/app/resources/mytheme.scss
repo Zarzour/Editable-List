@@ -1,0 +1,239 @@
+@import '../lib/resources/themes/stylesheets/sencha-touch/default/all';
+
+@include sencha-panel;
+@include sencha-buttons;
+@include sencha-sheet;
+@include sencha-picker;
+@include sencha-tabs;
+@include sencha-toolbar;
+@include sencha-toolbar-forms;
+@include sencha-indexbar;
+@include sencha-list;
+@include sencha-layout;
+@include sencha-carousel;
+@include sencha-form;
+@include sencha-msgbox;
+@include sencha-tux-editablelist;
+
+
+@include pictos-iconmask('haberler');
+@include pictos-iconmask('takvim');
+@include pictos-iconmask('piyasalar');
+@include pictos-iconmask('sayfam');
+
+$base-color: #494949;
+$list-bg-color: #282828;
+$page-bg-color:#FFFFFF;
+$list-color: #FFFFFF;
+$list-pressed-color: #494949;
+$include-list-highlights: #494949;
+$list-active-color: #494949;
+$list-active-gradient: 'glossy'; 
+$base-gradient: 'glossy';
+$include-default-icons: true;
+
+/*Background resmi*/
+$backGroundImage: "Background.png";
+
+/*Cell background resmi*/
+$cellBackGround:"cellbackground.png";
+
+/*e-takvimdeki yıldızlar işte buradan geliyor :P */
+$oneStar:"eCalendarOneStar.png";
+$twoStar:"eCalendarTwoStar.png";
+$threeStar:"eCalendarThreeStar.png";
+
+/*sembol sayfasındaki yeşil ve kırmızı up-down resimleride buradan*/
+$upArrow:"uparrow.png";
+$downArrow:"downarrow.png";
+body {
+	font-family: Helvetica;
+}
+.name {
+  font-size: 14px;
+  font-weight: bolder;
+
+}
+.lastValue {
+	text-align: right;
+	font-weight: bold;
+}
+.symbolCode {
+	text-align: left;
+	font-size: 14px;
+	font-weight: bold;
+}
+.updateTime {
+	text-align: left;
+	font-size: 10px;
+	font-weight: bold;
+}
+.arrow {
+	font-weight: bold;
+	font-size: 12px;
+	margin-left:6px;
+	padding-left:18px;
+	padding-top:7px;
+}
+.changeUP {
+	background-image: inline-image($upArrow);
+	background-repeat:no-repeat;
+	width:68px;
+	height:32px;
+}
+.changeDOWN{
+	background-image: inline-image($downArrow);
+	background-repeat:no-repeat;
+	width:68px;
+	height:32px;
+}
+
+/*yildiz için placeholder yaratiyoruz*/
+
+.star { 
+
+	width:42px;    
+	height:12px;
+	background-repeat: no-repeat;
+ 	background-size: 42px 12px;
+}
+
+/*burada da hangi yildizi yerlestirecegimizi soyluyoruz*/
+
+.one {      
+	
+	@extend .star;
+	background-image: inline-image($oneStar);
+  
+}
+
+
+.two {
+	@extend .star;
+  	background-image: inline-image($twoStar);
+}
+
+
+.three {
+	@extend .star;
+  	background-image: inline-image($threeStar);
+}
+
+._left{
+	float:left;
+}
+._right{
+	float:right;
+}
+
+.tblSymbolList td {
+	vertical-align:middle;
+}
+/*ekonomik takvim css*/
+.eHeader {
+	text-align: left;
+	width:100%;
+	font-weight: bold;
+}
+.tablo{
+	border-radius: 5px;
+}
+.country {
+	text-align: left;
+	width:30px;
+	font-size:12px;
+	font-weight: bold;
+	padding-right:5px;
+	padding-left:5px;
+}
+.date {
+	text-align: left;
+	font-size:12px;
+}
+.time {
+	text-align: left;
+	font-size:12px;
+	padding-left:5px;
+}
+.gerceklesen {
+	font-weight: bold;
+	font-size: 14px;
+	padding-left:5px;
+	color:#898989;
+}
+.önceki {
+	font-weight: bold;
+	font-size: 14px;
+	padding-left:5px;
+	color:#898989;
+}
+.beklenen {
+	font-weight: bold;
+	padding-left:10px;
+	color:#898989;
+}
+.dönem {
+	font-weight: bold;
+	font-size: 14px;
+	padding-left:10px;
+		color:#898989;
+}
+.beklenen {
+	font-size: 14px;
+}
+.gerceklesenDeger {
+	text-align: left;
+	font-size: 14px;
+}
+.öncekiDeger {
+	text-align: left;
+	font-size: 14px;
+}
+.beklenenDeger {
+	text-align: left;
+	font-size: 14px;
+}
+.dönemDeger {
+	text-align: left;
+	font-size: 14px;
+}
+
+/*sencha-tabbar-ui( string $ui-label, color $bar-color, string $bar-gradient, color $tab-active-color ) */
+
+@include sencha-tabbar-ui('gray', #222, 'glossy', #1E90FF);
+
+/* Main view'da kullanılmak üzere gray ui oluşturuldu */
+.x-list {
+  position: relative;
+
+/*background-image: url(../img/Background.png);*/
+
+background-image: inline-image($backGroundImage);
+background-repeat:no-repeat;
+width:100%;
+height:100%;
+background-size:100% 100%;
+}
+.x-list .x-list-item {
+  position: relative;
+  color: white;
+  border-top: 1px solid #232323;
+  background-image: inline-image($cellBackGround);
+  background-size:100% 100%;
+
+ 	/* 
+	bu cellbackground'a koyduğumuz resme benzer bir şey üretiyor bizzat kendim yaptım;)
+	border-top: 1px solid #6B6B6B;
+	background-color:rgba(123,123,123,0.25);
+	-webkit-box-shadow: 0px 1px 0 1px#171717;
+	*/
+}
+.x-list .x-list-item .x-list-item-label { 
+  min-height: 30px;
+  padding: 1px 1px;
+}
+.tblSymbolList {
+	padding:0px;
+	margin:0px;
+	height:30px;
+}
